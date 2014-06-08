@@ -1,0 +1,29 @@
+.menu-link {
+	display: block;
+	padding: 0 5px;
+	margin-top: 1em;
+	font-size: 2em;
+	text-align: center;
+	@extend %menu-link-style1;
+	
+	@include large-and-above {
+		display: inline;
+		margin-right: 0.8em;
+	}
+
+	@include xlarge {
+		background-color: transparent;
+	}
+}
+
+%menu-link-style1 {
+	border: 2px solid $main_background_color;
+	background-color: $logo_main_color;
+	color: $main_background_color;
+}
+
+%menu-link-style2 {
+	border: 2px solid $logo_secondary_color;
+	background-color: transparent;
+	color: $logo_secondary_color;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> 
+	<meta name="description" content="Template">
+	<meta name="robots" content="index, follow">
+	<link rel="shortcut icon" href="images/favicon.ico"/>
+	<!-- CSS FILES -->
+	<link href="css/style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+	<div id="main-wrapper" class="contact-wrapper">
+		<header></header>
+		<div id="content-wrapper">
+			<div class="menu-wrapper">
+				<div class="mobile-menu-wrapper">
+					<img src="images/logo-150.png" class="mobile-menu-logo" alt="Les David & Goliath">
+					<label for="mobile-menu-toggle" class="mobile-menu-toggle">menu</label>
+					<input type="checkbox" id="mobile-menu-toggle">
+					<div class="mobile-menu-links-wrapper">
+						<a href="" class="menu-link">menu</a>
+						<a href="" class="menu-link">horaire</a>
+						<a href="contact.html" class="menu-link">contact</a>
+					</div>
+				</div>
+				<div class="desktop-menu-wrapper">
+					<a href="" class="menu-link">menu</a>
+					<a href="" class="menu-link">horaire</a>
+					<a href="contact.html" class="menu-link">contact</a>
+				</div>
+			</div>
+			<div class="contact-infos-wrapper">
+				<div class="info-wrapper">
+					<span class="title">Adresse</span>
+					616 Rue Shefford,<br />
+					Bromont, QC J2L 1H1
+				</div>
+				<div class="info-wrapper">
+					<span class="title">Heures d’ouverture</span>
+					11h à 21h tous les jours<br />
+					* peut varier selon l’achalandage
+				</div>
+			</div>
+			<div class="social-wrapper">
+				<a href="" class="social-icon">
+					<img src="images/fb-logo.png" class="social-logo-img" alt="Suivez-nous sur facebook">
+				</a>
+				<a href="" class="social-icon">
+					<img src="images/fb-logo.png" class="social-logo-img" alt="Suivez-nous sur facebook">
+				</a>
+			</div>
+			<div id="map-wrapper"></div>
+		</div>
+		<footer>
+			<span class="footer-address">616 Rue Shefford, Bromont</span>
+			<span class="footer-phone">(450) 534-3213</span>
+		</footer>
+	</div>
+	
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
+<script src="js/modernizr.custom.11953.js"></script>
+<script src="js/master.js"></script>
+<script type="text/javascript">
+	Modernizr.load([
+		{
+			test: Modernizr.mq('only all'),
+			nope: 'js/respond.min.js'
+		}
+	]);
+</script>
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script src="js/map.js"></script>
+
+</body>
+</html>
