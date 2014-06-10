@@ -30,7 +30,7 @@ body {
 	height: 100%;
 
 	&.contact-wrapper {
-		background: url(../images/Contact_mobile_bg.jpg) center;
+		background: url(../images/Contact_mobile_bg.jpg) center fixed;
 		background-size: cover;
 	}
 }
@@ -72,6 +72,10 @@ body {
 	.mobile-menu-wrapper {
 		position: relative;
 		@include clearfix();
+
+		@include large-and-above {
+			display: none;
+		}
 	}
 
 	.mobile-menu-logo {
@@ -79,6 +83,10 @@ body {
 		width: 60px;
 		height: auto;
 		margin: 5px 0 5px 8px;
+
+		@include medium-and-above {
+			width: 90px;
+		}
 	}
 
 	// Checkbox for menu toggle
@@ -99,6 +107,10 @@ body {
 			right: 13px;
 		}
 		cursor: pointer;
+
+		@include medium-and-above {
+			display: none;
+		}
 	}
 
 	.mobile-menu-links-wrapper {
@@ -108,6 +120,10 @@ body {
 		display: none;
 		background-color: red;
 
+		@include medium-and-above {
+			display: none;
+		}
+
 		.menu-link {
 			margin: 0;
 		}
@@ -115,6 +131,14 @@ body {
 
 	.desktop-menu-wrapper {
 		display: none;
+
+		@include medium-and-above {
+			position: relative;
+			top: -60px;
+			display: block;
+			float: right;
+			padding-right: 1em;
+		}
 	}
 
 	.pre-footer {
@@ -167,12 +191,15 @@ body {
 	@include medium-and-above {
 		display: block;
 		margin: 30px auto 0; 
+		max-width: 600px;
+		font-size: 1.5em;
 	}
 
 	.title {
 		display: block;
 		margin-bottom: 0.5em;
 		font-size: 1.5em;
+		font-weight: bold;
 	}
 }
 
@@ -180,9 +207,8 @@ body {
 // ======================
 .social-wrapper {
 	width: 100%;
-	background-color: $main_background_color;
 	padding: 5px 0;
-	border-top: 2px solid $logo_secondary_color;
+	margin-bottom: 15px;
 	text-align: center;
 }
 
@@ -191,18 +217,36 @@ body {
 	height: 50px;
 	width: 50px;
 	margin: 0 5px;
+	box-sizing: border-box;
+	border: 1px solid $logo_main_color;
 	@include border-radius(100%);
-	background-color: $logo_secondary_color;
+	background-color: $main_background_color;
+	overflow: hidden;
 	transition: 0.5s all;
 
 	&:hover {
-		background-color: $logo_main_color;
+		background-color: $logo_secondary_color;
+		border: 1px solid $main_background_color;
+	}
+
+	@include medium-and-above {
+		width: 100px;
+		height: 100px;
 	}
 
 	.social-logo-img {
-		position: relative;
-		top: 5px;
-		margin: 0 auto;
+		@include border-radius(100%);
+
+		&.overlay {
+			position: relative;
+			top: -50px;
+			opacity: 0;
+			transition: 0.5s all;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
 	}
 }
 
@@ -213,6 +257,10 @@ body {
 	height: 0;
 	padding-bottom: 80%;
 	border-top: 2px solid $logo_secondary_color;
+
+	@include medium-and-above {
+		padding-bottom: 60%;
+	}
 }
 
 /************************
