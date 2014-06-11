@@ -11,7 +11,7 @@ body {
 }
 
 body {
-	background: url(../images/Mobile_bg.jpg) 0 -30px;
+	background: url(../images/Mobile_bg.jpg) 0 -50px;
 	background-size: cover;
 
 	@include medium-and-above {
@@ -20,7 +20,7 @@ body {
 	}
 
 	@include large-and-above {
-		background: url(../images/Big_bg.jpg) center -100px;
+		background: url(../images/Big_bg.jpg) center ;
 		background-size: cover;
 	}
 }
@@ -32,6 +32,10 @@ body {
 	&.contact-wrapper {
 		background: url(../images/Contact_mobile_bg.jpg) center fixed;
 		background-size: cover;
+
+		@include large-and-above {
+			background: none;
+		}
 	}
 }
 
@@ -57,19 +61,30 @@ body {
 			margin-top: 4.5em;
 		}
 
+		@include xlarge { 
+			margin-top: 0;
+		}
+
 		@include small-and-below-landscape {
 			margin-bottom: 1.5em;		
 		}
 
 		.menu-link {
-			@extend %menu-link-style2--transparent;
+			@extend %menu-link-style2;
 
 			@include large-and-above {
 				margin-top: 0.5em;
 				border: 4px solid $main_background_color;
 				background-color: transparentize($logo_secondary_color, 0.2);
 				font-size: 3.5em;
-				border-radius: 1px;
+			}
+
+			@include xlarge { 
+				display: inline-block;
+				margin-left: 1em;
+				background-color: transparent;
+				border: 2px solid $main_background_color;
+				font-size: 2em;
 			}
 		}
 	}
@@ -79,6 +94,15 @@ body {
 		display: block;
 		width: 100%;
 		background-color: $main_background_color;
+
+		@include large-and-above {
+			display: inline-block;
+			float: right;
+			margin-top: 10px;
+			padding-bottom: 10px;
+			width: auto;
+			background-color: transparent;
+		}
 	}
 
 	.mobile-menu-wrapper {
@@ -157,15 +181,21 @@ body {
 		}
 
 		@include large-and-above {
-			top: 0px;
+			top: 0;
+			float: none;	
 		}
 
 		.menu-link {
-			@extend %menu-link-style2;
+			@extend %menu-link-style1;
 
 			@include medium-and-above {
 				display: inline;
 				margin-right: 0.8em;
+			}
+
+			@include large-and-above {
+				border: 2px solid $main_background_color;
+				color: $main_background_color;	
 			}
 		}
 	}
@@ -207,7 +237,14 @@ body {
 //=======================
 .contact-infos-wrapper {
 	text-align: center;
-	padding-bottom: 30px;
+	//padding-bottom: 30px;
+
+	@include large-and-above {
+		padding-top: 1px;
+		background-color: $main_background_color;
+		clear: both;
+		@include clearfix();
+	}
 }
 
 .info-wrapper {
@@ -228,6 +265,12 @@ body {
 		font-size: 1.5em;
 	}
 
+	@include large-and-above {
+		background-color: transparent;
+		color: $logo_main_color;
+		font-size: 1.3em;
+	}
+
 	.title {
 		display: block;
 		margin-bottom: 0.5em;
@@ -236,12 +279,26 @@ body {
 	}
 }
 
+// Google Map
+// ======================
+#map-wrapper {
+	width: 100%;
+	height: 0;
+	margin-top: 30px;
+	padding-bottom: 80%;
+	border-top: 2px solid $logo_secondary_color;
+
+	@include medium-and-above {
+		padding-bottom: 60%;
+	}
+}
+
 // Social area
 // ======================
 .social-wrapper {
 	width: 100%;
-	padding: 5px 0;
-	margin-bottom: 15px;
+	padding: 15px 0;
+	background-color: $logo_secondary_color;
 	text-align: center;
 }
 
@@ -280,19 +337,6 @@ body {
 				opacity: 1;
 			}
 		}
-	}
-}
-
-// Google Map
-// ======================
-#map-wrapper {
-	width: 100%;
-	height: 0;
-	padding-bottom: 80%;
-	border-top: 2px solid $logo_secondary_color;
-
-	@include medium-and-above {
-		padding-bottom: 60%;
 	}
 }
 

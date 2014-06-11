@@ -16,7 +16,7 @@
 %menu-link-style2 {
 	@extend %menu-link;
 	border: 2px solid $main_background_color;
-	background-color: $logo_main_color;
+	background-color: transparentize($logo_main_color, 0.2);
 	color: $main_background_color;
 }
 
