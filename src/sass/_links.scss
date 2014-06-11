@@ -1,24 +1,30 @@
-.menu-link {
+%menu-link {
 	display: block;
 	padding: 0 5px;
 	margin-top: 1em;
 	font-size: 2em;
 	text-align: center;
-	border: 2px solid $main_background_color;
-	background-color: $logo_main_color;
-	color: $main_background_color;
-	
-	@include medium-and-above {
-		display: inline;
-		margin-right: 0.8em;
-		border: 2px solid $logo_secondary_color;
-		background-color: transparent;
-		color: $logo_secondary_color;
-	}
 }
 
-%menu-link-style2 {
+%menu-link-style1 {
+	@extend %menu-link;
 	border: 2px solid $logo_secondary_color;
 	background-color: transparent;
 	color: $logo_secondary_color;
 }
+
+%menu-link-style2 {
+	@extend %menu-link;
+	border: 2px solid $main_background_color;
+	background-color: $logo_main_color;
+	color: $main_background_color;
+}
+
+%menu-link-style2--transparent {
+	@extend %menu-link;
+	border: 2px solid $main_background_color;
+	background-color: transparent;
+	color: $main_background_color;
+}
+
+
