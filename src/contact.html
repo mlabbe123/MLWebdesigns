@@ -15,7 +15,16 @@
 		<div id="content-wrapper">
 			<div class="menu-wrapper">
 				<div class="mobile-menu-wrapper">
-					<a href="index.html" class="logo-wrapper"><img src="images/logo-150.png" class="mobile-menu-logo" alt="Les David & Goliath"></a>
+					<a href="index.html">
+						<h1 class="logo">
+							<span class="first-part">
+								<span class="les">LES</span>
+								<span class="david">DAVID</span>
+							</span>
+							<span class="et">&</span>
+							<span class="goliath">GOLIATH</span>
+						</h1>
+					</a>
 					<label for="mobile-menu-toggle" class="mobile-menu-toggle">menu</label>
 					<input type="checkbox" id="mobile-menu-toggle">
 					<div class="mobile-menu-links-wrapper">
@@ -25,21 +34,37 @@
 					</div>
 				</div>
 				<div class="desktop-menu-wrapper">
+					<a href="index.html">
+						<h1 class="logo">
+							<span class="first-part">
+								<span class="les">LES</span>
+								<span class="david">DAVID</span>
+							</span>
+							<span class="et">&</span>
+							<span class="goliath">GOLIATH</span>
+						</h1>
+					</a>
 					<a href="" class="menu-link">menu</a>
 					<a href="" class="menu-link">horaire</a>
 					<a href="contact.html" class="menu-link">contact</a>
 				</div>
 			</div>
 			<div class="contact-infos-wrapper">
-				<div class="info-wrapper">
-					<span class="title">Adresse</span>
-					616 Rue Shefford,<br />
-					Bromont, QC J2L 1H1
-				</div>
-				<div class="info-wrapper">
-					<span class="title">Heures d’ouverture</span>
-					11h à 21h tous les jours<br />
-					* peut varier selon l’achalandage
+				<div class="contact-infos-region">
+					<header class="contact-header">
+						<h2 class="section-title">Nous contacter</h2>
+					</header>
+					<div class="info-wrapper">
+						<span class="title">Adresse</span>
+						616 Rue Shefford,<br />
+						Bromont, QC J2L 1H1<br /><br />
+						(450) 534-3213 
+					</div>
+					<div class="info-wrapper">
+						<span class="title">Heures d’ouverture</span>
+						11h à 21h tous les jours<br />
+						* peut varier selon l’achalandage
+					</div>
 				</div>
 				<div id="map-wrapper"></div>
 			</div>
@@ -63,7 +88,6 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
 <script src="js/modernizr.custom.11953.js"></script>
-<script src="js/master.js"></script>
 <script type="text/javascript">
 	Modernizr.load([
 		{

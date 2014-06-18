@@ -1,3 +1,10 @@
-@font-face{
-  
+@font-face {
+    font-family: 'Goliath';
+    src: url('fonts/goliath.eot');
+    src: url('fonts/goliath.eot') format('embedded-opentype'),
+         url('fonts/goliath.woff') format('woff'),
+         url('fonts/Goliath.ttf') format('truetype'),
+         url('fonts/goliath.svg#Goliath') format('svg');
+    font-style: normal;
+    font-weight: normal;
 }

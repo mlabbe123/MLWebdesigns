@@ -2,8 +2,13 @@
 @import 'reset';
 @import 'variables';
 @import 'mixins';
+@import 'headers';
 @import 'fonts';
 @import 'links';
+
+html {
+	font-family: 'Goliath';
+}
 
 html,
 body {
@@ -20,8 +25,44 @@ body {
 	}
 
 	@include large-and-above {
-		background: url(../images/Big_bg.jpg) center ;
+		background: url(../images/Big_bg.jpg) center -60px;
 		background-size: cover;
+	}
+}
+
+// Placeholders
+// =================
+%logo {
+	float: left;
+	margin-left: 10px;
+	color: $logo_main_color;
+	@include clearfix();
+
+	.first-part {
+		float: left;
+
+		.les {
+			display: block;
+			font-size: 1.65em;
+		}
+
+		.david {
+			display: block;
+		}
+	}
+
+	.et {
+		float: left;
+		padding: 0 3px;
+		font-size: 3.3em;
+		color: $main_background_color;
+		line-height: 0.85em;
+	}
+
+	.goliath {
+		float: left;
+		font-size: 3.3em;
+		line-height: 0.85em;
 	}
 }
 
@@ -96,11 +137,8 @@ body {
 		background-color: $main_background_color;
 
 		@include large-and-above {
-			display: inline-block;
-			float: right;
 			margin-top: 10px;
 			padding-bottom: 10px;
-			width: auto;
 			background-color: transparent;
 		}
 	}
@@ -113,20 +151,37 @@ body {
 			display: none;
 		}
 
-		.logo-wrapper {
+		.logo {
+			@extend %logo;
 			display: block;
+			margin: 5px 0 10px 10px;
+			padding-top: 1px;
+			border: {
+				top: 4px solid $logo_secondary_color;
+				bottom: 4px solid $logo_secondary_color;
+			}
+			font-size: 0.7em;
+
+			.et {
+				color: $logo_secondary_color;
+			}
+
+			@include medium-and-above {
+				position: relative;
+				top: 5px;
+			}
+
+			@include large-and-above {
+				display: none;
+			}
 		}
 	}
 
-	.mobile-menu-logo {
+	.menu-logo {
 		float: left;
-		width: 60px;
+		width: 183px;
 		height: auto;
 		margin: 5px 0 5px 8px;
-
-		@include medium-and-above {
-			width: 90px;
-		}
 	}
 
 	// Checkbox for menu toggle
@@ -142,8 +197,8 @@ body {
 		@extend %menu-link-style1;
 		float: right;
 		margin: {
-			top: 13px;
-			right: 13px;
+			top: 5px;
+			right: 10px;
 		}
 		cursor: pointer;
 
@@ -153,44 +208,64 @@ body {
 	}
 
 	.mobile-menu-links-wrapper {
-		position: absolute;
-		top: 62px;
-		width: 100%;
 		display: none;
-		background-color: red;
+		position: absolute;
+		top: 46px;
+		width: 100%;
+		padding-bottom: 10px;
+		background-color: $main_background_color;
 
 		@include medium-and-above {
 			display: none;
 		}
 
 		.menu-link {
-			margin: 0;
+			margin: 5px 10px 0;
 			@extend %menu-link-style2;
+			border: none;
+			background-color: $logo_main_color;
 		}
 	}
 
 	.desktop-menu-wrapper {
 		display: none;
+		@include clearfix();
 
 		@include medium-and-above {
 			position: relative;
-			top: -60px;
+			top: -45px;
 			display: block;
 			float: right;
-			padding-right: 1em;
+			margin-right: 10px;
 		}
 
 		@include large-and-above {
 			top: 0;
 			float: none;	
+			padding-bottom: 30px;
+		}
+
+		.logo {
+			@extend %logo;
+			display: none;
+
+			@include large-and-above {
+				display: block;
+				font-size: 1.5em;
+			}
+
+			@include xlarge {
+				font-size: 2em;
+			}
 		}
 
 		.menu-link {
 			@extend %menu-link-style1;
 
 			@include medium-and-above {
-				display: inline;
-				margin-right: 0.8em;
+				float: right;
+				margin-left: 0.8em;
+				margin-top: 0;
 			}
 
 			@include large-and-above {
@@ -205,7 +280,7 @@ body {
 		position: absolute;
 		width: 100%;
 		bottom: 0;
-		margin-bottom: 32px; 
+		margin-bottom: 30px; 
 		
 		@include small-and-below-landscape {
 			position: relative;
@@ -235,15 +310,51 @@ body {
 //=======================
 // Page contact
 //=======================
-.contact-infos-wrapper {
+.contact-header {
+	background-color: transparentize($logo_secondary_color, 0.2);
+	padding: 5px 0;
 	text-align: center;
-	//padding-bottom: 30px;
+	box-sizing: border-box;
+	border: {
+		left: 10px solid $main_background_color;
+		right: 10px solid $main_background_color;
+		bottom: 5px solid $main_background_color;
+	}
 
 	@include large-and-above {
-		padding-top: 1px;
+		clear: both;
+		padding-top: 15px;
+		background-color: transparent;
+		border: 0;
+		border-bottom: 1px solid $main_background_color;
+	}
+}
+
+.contact-infos-wrapper {
+	text-align: center;
+	max-width: 1200px;
+
+	@include large-and-above {
 		background-color: $main_background_color;
+		border-top: 2px solid $logo_main_color;
 		clear: both;
 		@include clearfix();
+	}
+
+	@include xlarge {
+		margin: 0 auto;
+		border: none;
+	}
+}
+
+.contact-infos-region {
+	@include large-and-above {
+		float: left;
+		width: 50%;
+		height: 0;
+		padding-bottom: 40%;
+		//background: url(../images/Contact_mobile_bg.jpg);
+		//background-size: cover;
 	}
 }
 
@@ -266,16 +377,15 @@ body {
 	}
 
 	@include large-and-above {
-		background-color: transparent;
-		color: $logo_main_color;
 		font-size: 1.3em;
+		background-color: transparent;
+		color: $logo_secondary_color;
 	}
 
 	.title {
 		display: block;
 		margin-bottom: 0.5em;
 		font-size: 1.5em;
-		font-weight: bold;
 	}
 }
 
@@ -291,15 +401,33 @@ body {
 	@include medium-and-above {
 		padding-bottom: 60%;
 	}
+
+	@include large-and-above {
+		width: 50%;
+		float: right;
+		padding-bottom: 40%;
+		margin-top: 0;
+		border: none;
+		box-sizing: border-box;
+		border-left: 2px solid $logo_main_color;
+	}
 }
 
 // Social area
 // ======================
 .social-wrapper {
 	width: 100%;
-	padding: 15px 0;
-	background-color: $logo_secondary_color;
+	background-color: $logo_main_color;
 	text-align: center;
+	padding: {
+		top: 7px;
+		bottom: 5px;
+	}
+	max-width: 1200px;
+	
+	@include xlarge {
+		margin: 0 auto;
+	}	
 }
 
 .social-icon {
@@ -317,11 +445,6 @@ body {
 	&:hover {
 		background-color: $logo_secondary_color;
 		border: 1px solid $main_background_color;
-	}
-
-	@include medium-and-above {
-		width: 100px;
-		height: 100px;
 	}
 
 	.social-logo-img {
@@ -347,10 +470,10 @@ footer {
 	width: 100%;
 	position: absolute;
 	bottom: 0;
+	padding: 10px 0 0;
 	background: $main_background_color;
 	@include clearfix();
 	color: $logo_secondary_color;
-	border-top: 2px solid $logo_secondary_color;
 
 	.contact-wrapper & {
 		position: relative;
@@ -360,6 +483,13 @@ footer {
 	@include small-and-below-landscape {
 		position: relative;
 		bottom: auto;
+	}
+
+	.contact-wrapper & {
+		@include xlarge {
+			width: 1200px;
+			margin: 0 auto;
+		}
 	}
 
 	.footer-address {
