@@ -1,10 +1,23 @@
 @font-face {
     font-family: 'Goliath';
     src: url('fonts/goliath.eot');
-    src: url('fonts/goliath.eot') format('embedded-opentype'),
+    src: url('fonts/goliath.eot?#iefix') format('embedded-opentype'),
+    	 url('fonts/goliath.otf') format('opentype'),
          url('fonts/goliath.woff') format('woff'),
          url('fonts/Goliath.ttf') format('truetype'),
          url('fonts/goliath.svg#Goliath') format('svg');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'glyphicons';
+    src: url('fonts/glyphicons-regular.eot');
+    src: url('fonts/glyphicons-regular.eot?#iefix') format('embedded-opentype'),
+         url('fonts/glyphicons-regular.otf') format('opentype'),
+         url('fonts/glyphicons-regular.woff') format('woff'),
+         url('fonts/glyphicons-regular.ttf') format('truetype'),
+         url('fonts/glyphicons-regular.svg#glyphicons') format('svg');
     font-style: normal;
     font-weight: normal;
 }

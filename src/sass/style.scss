@@ -332,7 +332,7 @@ body {
 
 .contact-infos-wrapper {
 	text-align: center;
-	max-width: 1200px;
+	max-width: 1600px;
 
 	@include large-and-above {
 		background-color: $main_background_color;
@@ -342,6 +342,7 @@ body {
 	}
 
 	@include xlarge {
+		width: 90%;
 		margin: 0 auto;
 		border: none;
 	}
@@ -353,8 +354,7 @@ body {
 		width: 50%;
 		height: 0;
 		padding-bottom: 40%;
-		//background: url(../images/Contact_mobile_bg.jpg);
-		//background-size: cover;
+		text-align: center;
 	}
 }
 
@@ -377,6 +377,7 @@ body {
 	}
 
 	@include large-and-above {
+		width: 70%;
 		font-size: 1.3em;
 		background-color: transparent;
 		color: $logo_secondary_color;
@@ -387,6 +388,56 @@ body {
 		margin-bottom: 0.5em;
 		font-size: 1.5em;
 	}
+}
+
+.info-address,
+.info-telephone,
+.info-hours,
+.info-hours-disclaimer {
+	display: block;
+	position: relative;
+	padding-left: 80px;
+}
+
+.info-address {
+	&::before {
+		position: absolute;
+		left: 0;
+		top: -10px;
+		content: "\e243";
+		font-family: 'glyphicons';
+		font-size: 2.5em;
+	}
+}
+
+.info-telephone {
+	//margin-top: 50px;
+
+	&::before {
+		position: absolute;
+		left: 0;
+		top: -15px;
+		content: "\e443";
+		font-family: 'glyphicons';
+		font-size: 2.5em;
+	}
+}
+
+.info-hours {
+	//margin-top: 50px;
+
+	&::before {
+		position: absolute;
+		left: 0;
+		top: -10px;
+		content: "\e055";
+		font-family: 'glyphicons';
+		font-size: 2.5em;
+	}
+}
+
+.info-hours-disclaimer {
+	margin-top: 15px;
 }
 
 // Google Map
@@ -423,9 +474,10 @@ body {
 		top: 7px;
 		bottom: 5px;
 	}
-	max-width: 1200px;
+	max-width: 1600px;
 	
 	@include xlarge {
+		width: 90%;
 		margin: 0 auto;
 	}	
 }
@@ -487,7 +539,8 @@ footer {
 
 	.contact-wrapper & {
 		@include xlarge {
-			width: 1200px;
+			width: 90%;
+			max-width: 1600px; 
 			margin: 0 auto;
 		}
 	}
@@ -495,10 +548,24 @@ footer {
 	.footer-address {
 		float: left;
 		padding: 7px;
+
+		&::before {
+			content: "\e243";
+			position: relative;
+			top: 2px;
+			font-family: 'glyphicons';
+		}
 	}
 
 	.footer-phone {
 		float: right;
 		padding: 7px;
+
+		&::before {
+			content: "\e443";
+			position: relative;
+			top: 2px;
+			font-family: 'glyphicons';
+		}
 	}
 }
