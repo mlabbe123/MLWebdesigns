@@ -24,6 +24,10 @@
   @media only screen and (min-width : 1024px) { @content; }
 }
 
-@mixin xlarge {
+@mixin xlarge-and-above {
   @media only screen and (min-width : 1200px) { @content; }
+}
+
+@mixin immense {
+  @media only screen and (min-width : 1440px) { @content; }
 }

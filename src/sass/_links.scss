@@ -1,3 +1,16 @@
+.link {
+	@include transition(all 0.5s ease);
+
+	&:link,
+	&:visited {
+		color: $logo_secondary_color;
+	}
+
+	&:hover {
+		color: $logo_main_color;
+	}
+}
+
 %menu-link {
 	display: block;
 	padding: 0 5px;
@@ -11,6 +24,17 @@
 	border: 4px solid $logo_secondary_color;
 	background-color: transparent;
 	color: $logo_secondary_color;
+	@include transition(all 0.5s ease);
+
+	&:hover {
+		color: $main_background_color;
+		background-color: $logo_secondary_color;
+	}
+
+	&.current {
+		color: $main_background_color;
+		background-color: $logo_secondary_color;
+	}
 }
 
 %menu-link-style2 {
@@ -18,6 +42,19 @@
 	border: 4px solid $main_background_color;
 	background-color: transparentize($logo_main_color, 0.2);
 	color: $main_background_color;
+	@include transition(all 0.5s ease);
+
+	&:hover {
+		color: $logo_main_color;
+		background-color: $main_background_color;
+		border: 4px solid $logo_main_color;
+	}
+
+	&.current {
+		color: $logo_main_color;
+		background-color: $main_background_color;
+		border: 4px solid $logo_main_color;
+	}
 }
 
 %menu-link-style2--transparent {
@@ -25,6 +62,15 @@
 	border: 4px solid $main_background_color;
 	background-color: transparent;
 	color: $main_background_color;
+
+	&:hover {
+		color: $logo_secondary_color;
+		background-color: $main_background_color;
+	}
+	&.current {
+		color: $logo_secondary_color;
+		background-color: $main_background_color;
+	}
 }
 
 

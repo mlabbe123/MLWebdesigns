@@ -96,18 +96,18 @@ body {
 	// Menu for home page
 	.home-menu-wrapper {
 		float: right;
-		padding-right: 1em;
+		padding-right: 10px;
 
 		@include large-and-above {
 			margin-top: 4.5em;
 		}
 
-		@include xlarge { 
+		@include xlarge-and-above {
 			margin-top: 0;
 		}
 
 		@include small-and-below-landscape {
-			margin-bottom: 1.5em;		
+			margin-bottom: 1.5em;
 		}
 
 		.menu-link {
@@ -118,14 +118,24 @@ body {
 				border: 4px solid $main_background_color;
 				background-color: transparentize($logo_secondary_color, 0.2);
 				font-size: 3.5em;
+
+				&:hover {
+					border: 4px solid $logo_secondary_color;
+					color: $logo_secondary_color;
+				}
 			}
 
-			@include xlarge { 
+			@include xlarge-and-above {
 				display: inline-block;
-				margin-left: 1em;
+				margin-left: 0.7em;
+				margin-top: 10px;
 				background-color: transparent;
 				border: 2px solid $main_background_color;
 				font-size: 2em;
+
+				&:hover {
+					border: 2px solid $main_background_color;
+				}
 			}
 		}
 	}
@@ -146,6 +156,7 @@ body {
 	.mobile-menu-wrapper {
 		position: relative;
 		@include clearfix();
+		z-index: 2;
 
 		@include large-and-above {
 			display: none;
@@ -237,11 +248,12 @@ body {
 			display: block;
 			float: right;
 			margin-right: 10px;
+			z-index: 5;
 		}
 
 		@include large-and-above {
 			top: 0;
-			float: none;	
+			float: none;
 			padding-bottom: 30px;
 		}
 
@@ -254,7 +266,7 @@ body {
 				font-size: 1.5em;
 			}
 
-			@include xlarge {
+			@include xlarge-and-above {
 				font-size: 2em;
 			}
 		}
@@ -270,7 +282,13 @@ body {
 
 			@include large-and-above {
 				border: 2px solid $main_background_color;
-				color: $main_background_color;	
+				color: $main_background_color;
+				@include transition(all 0.5s ease);
+
+				&:hover {
+					color: $logo_secondary_color;
+					background-color: $main_background_color;
+				}
 			}
 		}
 	}
@@ -280,8 +298,8 @@ body {
 		position: absolute;
 		width: 100%;
 		bottom: 0;
-		margin-bottom: 30px; 
-		
+		margin-bottom: 30px;
+
 		@include small-and-below-landscape {
 			position: relative;
 			margin-bottom: 0;
@@ -302,7 +320,7 @@ body {
 				height: auto;
 				max-width: 150px;
 				margin: 0 auto 15px;
-			}			
+			}
 		}
 	}
 }
@@ -341,7 +359,7 @@ body {
 		@include clearfix();
 	}
 
-	@include xlarge {
+	@include xlarge-and-above {
 		width: 90%;
 		margin: 0 auto;
 		border: none;
@@ -359,10 +377,10 @@ body {
 }
 
 .info-wrapper {
-	display: inline-block;
+	display: block;
 	width: 87%;
 	max-width: 300px;
-	margin-top: 30px;
+	margin: 30px auto 0;
 	padding: 10px;
 	background-color: transparentize($logo_secondary_color, 0.2);
 	color: $main_background_color;
@@ -371,16 +389,25 @@ body {
 
 	@include medium-and-above {
 		display: block;
-		margin: 30px auto 0; 
+		margin: 30px auto 0;
 		max-width: 600px;
 		font-size: 1.5em;
 	}
 
 	@include large-and-above {
-		width: 70%;
+		width: 350px;
+		margin-top: 20px;
 		font-size: 1.3em;
 		background-color: transparent;
 		color: $logo_secondary_color;
+	}
+
+	@include xlarge-and-above {
+		margin-top: 35px;
+	}
+
+	@include immense {
+		margin-top: 50px;
 	}
 
 	.title {
@@ -397,47 +424,121 @@ body {
 	display: block;
 	position: relative;
 	padding-left: 80px;
+
+	@include medium-and-above {
+		padding-left: 100px;
+	}
 }
 
 .info-address {
+	&:link,
+	&:visited {
+		color: $main_background_color;
+	}
+
+	@include medium-and-above {
+		padding: {
+			top: 5px;
+			bottom: 5px
+		}
+	}
+
+	@include large-and-above {
+		&:link,
+		&:visited {
+			color: $logo_secondary_color;
+			transition: all 0.5s ease;
+		}
+	}
+
+	&:hover {
+		&:link,
+		&:visited {
+			color: $logo_main_color;
+		}
+
+		&::before {
+			@include transform(scale(1.5, 1.5));
+		}
+	}
+
 	&::before {
 		position: absolute;
-		left: 0;
-		top: -10px;
+		left: 15px;
+		top: -8px;
 		content: "\e243";
 		font-family: 'glyphicons';
 		font-size: 2.5em;
+		transition: all 0.5s ease;
 	}
 }
 
 .info-telephone {
-	//margin-top: 50px;
+	padding: {
+		top: 5px;
+		bottom: 5px
+	}
+
+	@include medium-and-above {
+		padding: {
+			top: 15px;
+			bottom: 15px
+		}
+	}
+
+	&:hover {
+		&::before {
+			@include transform(scale(1.5, 1.5));
+		}
+	}
 
 	&::before {
 		position: absolute;
-		left: 0;
-		top: -15px;
+		left: 15px;
+		top: -12px;
 		content: "\e443";
 		font-family: 'glyphicons';
 		font-size: 2.5em;
+		transition: all 0.5s ease;
+
+		@include large-and-above {
+			top: -5px;
+		}
 	}
 }
 
 .info-hours {
-	//margin-top: 50px;
+	@include medium-and-above {
+		padding: {
+			top: 5px;
+			bottom: 5px
+		}
+	}
+
+	&:hover {
+		&::before {
+			@include transform(scale(1.5, 1.5));
+		}
+	}
 
 	&::before {
 		position: absolute;
-		left: 0;
-		top: -10px;
+		left: 15px;
+		top: -3px;
 		content: "\e055";
 		font-family: 'glyphicons';
 		font-size: 2.5em;
+		transition: all 0.5s ease;
+
+		@include large-and-above {
+			top: 0px;
+		}
 	}
 }
 
 .info-hours-disclaimer {
 	margin-top: 15px;
+	font-size: 0.8em;
 }
 
 // Google Map
@@ -475,11 +576,11 @@ body {
 		bottom: 5px;
 	}
 	max-width: 1600px;
-	
-	@include xlarge {
+
+	@include xlarge-and-above {
 		width: 90%;
 		margin: 0 auto;
-	}	
+	}
 }
 
 .social-icon {
@@ -538,9 +639,9 @@ footer {
 	}
 
 	.contact-wrapper & {
-		@include xlarge {
+		@include xlarge-and-above {
 			width: 90%;
-			max-width: 1600px; 
+			max-width: 1600px;
 			margin: 0 auto;
 		}
 	}
@@ -564,7 +665,8 @@ footer {
 		&::before {
 			content: "\e443";
 			position: relative;
-			top: 2px;
+			top: 3px;
+			left: -4px;
 			font-family: 'glyphicons';
 		}
 	}
