@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Les David & Goliath</title>
+	<title>Les David & Goliath | menu</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<meta name="description" content="Template">
@@ -11,7 +11,7 @@
 	<link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-	<div id="main-wrapper" class="home-wrapper">
+	<div id="main-wrapper" class="contact-wrapper">
 		<header>
 			<div class="menu-wrapper">
 				<div class="mobile-menu-wrapper">
@@ -28,8 +28,8 @@
 					<label for="mobile-menu-toggle" class="mobile-menu-toggle">menu</label>
 					<input type="checkbox" id="mobile-menu-toggle">
 					<div class="mobile-menu-links-wrapper">
-						<a href="index.html" class="menu-link current">accueil</a>
-						<a href="menu.html" class="menu-link">menu</a>
+						<a href="index.html" class="menu-link">accueil</a>
+						<a href="menu.html" class="menu-link current">menu</a>
 						<a href="contact.html" class="menu-link">contact</a>
 					</div>
 				</div>
@@ -45,13 +45,31 @@
 						</h1>
 					</a>
 					<a href="contact.html" class="menu-link">contact</a>
-					<a href="menu.html" class="menu-link">menu</a>
-					<a href="index.html" class="menu-link current">accueil</a>
+					<a href="menu.html" class="menu-link current">menu</a>
+					<a href="index.html" class="menu-link">accueil</a>
 				</div>
 			</div>
 		</header>
-		<div class="content-wrapper">
-			<h2 class="award-wrapper"><a href="" class="award-link">Meilleur restaurant en<br />Estrie selon tripadvisor</a></h2>
+		<div id="content-wrapper">
+			<div class="contact-infos-wrapper">
+				<div class="contact-infos-region">
+					<header class="contact-header">
+						<h2 class="section-title">Nous contacter</h2>
+					</header>
+					<div class="info-wrapper">
+						<a href="" class="info-address link">616 Rue Shefford,<br />
+						Bromont, QC J2L 1H1</a>
+					</div>
+					<div class="info-wrapper">
+						<span class="info-telephone">(450) 534-3213</span>
+					</div>
+					<div class="info-wrapper">
+						<span class="info-hours">11h à 21h tous les jours</span>
+						<span class="info-hours-disclaimer">* peut varier selon l’achalandage</span>
+					</div>
+				</div>
+				<div id="map-wrapper"></div>
+			</div>
 		</div>
 		<footer>
 			<div class="footer-top">
@@ -91,5 +109,8 @@
 		}
 	]);
 </script>
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script src="js/map.js"></script>
+
 </body>
 </html>

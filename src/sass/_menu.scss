@@ -1,0 +1,186 @@
+// Placeholders
+// =================
+%logo {
+	float: left;
+	margin-left: 10px;
+	color: $logo_main_color;
+	@include clearfix();
+
+	.first-part {
+		float: left;
+
+		.les {
+			display: block;
+			font-size: 1.65em;
+		}
+
+		.david {
+			display: block;
+		}
+	}
+
+	.et {
+		float: left;
+		padding: 0 3px;
+		font-size: 3.3em;
+		color: $main_background_color;
+		line-height: 0.85em;
+	}
+
+	.goliath {
+		float: left;
+		font-size: 3.3em;
+		line-height: 0.85em;
+	}
+}
+
+.menu-wrapper {
+	display: block;
+	width: 100%;
+	background-color: $main_background_color;
+
+	@include large-and-above {
+		margin-top: 10px;
+		padding-bottom: 10px;
+		background-color: transparent;
+	}
+}
+
+.mobile-menu-wrapper {
+	position: relative;
+	@include clearfix();
+	z-index: 100;
+
+	@include large-and-above {
+		display: none;
+	}
+
+	.logo {
+		@extend %logo;
+		display: block;
+		margin: 5px 0 5px 10px;
+		padding-top: 1px;
+		border: {
+			top: 4px solid $logo_secondary_color;
+			bottom: 4px solid $logo_secondary_color;
+		}
+		font-size: 0.7em;
+
+		.et {
+			color: $logo_secondary_color;
+		}
+
+		@include large-and-above {
+			display: none;
+		}
+	}
+}
+
+.menu-logo {
+	float: left;
+	width: 183px;
+	height: auto;
+	margin: 5px 0 5px 8px;
+}
+
+// Checkbox for menu toggle
+#mobile-menu-toggle {
+	display: none;
+
+	&:checked + .mobile-menu-links-wrapper {
+		display: block;
+	}
+}
+
+.mobile-menu-toggle {
+	@extend %menu-link-style1;
+	float: right;
+	margin: {
+		top: 5px;
+		right: 10px;
+	}
+	cursor: pointer;
+
+	@include medium-and-above {
+		display: none;
+	}
+}
+
+.mobile-menu-links-wrapper {
+	display: none;
+	position: absolute;
+	top: 50px;
+	width: 100%;
+	padding-bottom: 10px;
+	background-color: $main_background_color;
+
+	@include medium-and-above {
+		display: none;
+	}
+
+	.menu-link {
+		margin: 5px 10px 0;
+		@extend %menu-link-style2;
+		border: 4px solid $logo_main_color;
+		background-color: $logo_main_color;
+	}
+}
+
+.desktop-menu-wrapper {
+	display: none;
+	@include clearfix();
+
+	@include medium-and-above {
+		position: relative;
+		top: -45px;
+		display: block;
+		float: right;
+		margin-right: 10px;
+		z-index: 101;
+	}
+
+	@include large-and-above {
+		top: 0;
+		float: none;
+	}
+
+	.logo {
+		@extend %logo;
+		display: none;
+
+		@include large-and-above {
+			display: block;
+			font-size: 1.5em;
+		}
+
+		@include xlarge-and-above {
+			font-size: 2em;
+		}
+	}
+
+	.menu-link {
+		@extend %menu-link-style1;
+
+		@include medium-and-above {
+			float: right;
+			margin-left: 0.8em;
+			margin-top: 0;
+		}
+
+		@include large-and-above {
+			border: 2px solid $main_background_color;
+			color: $main_background_color;
+			@include transition(all 0.5s ease);
+
+			&:hover {
+				color: $logo_secondary_color;
+				background-color: $main_background_color;
+			}
+
+			&.current {
+				color: $logo_secondary_color;
+				background-color: $main_background_color;
+			}
+		}
+	}
+}

@@ -2,9 +2,12 @@
 @import 'reset';
 @import 'variables';
 @import 'mixins';
+
 @import 'headers';
+@import 'footer';
 @import 'fonts';
 @import 'links';
+@import 'menu';
 
 html {
 	font-family: 'Goliath';
@@ -16,53 +19,9 @@ body {
 }
 
 body {
-	background: url(../images/Mobile_bg.jpg) 0 -50px;
-	background-size: cover;
-
-	@include medium-and-above {
-		background: url(../images/Tablet_bg.jpg) 0 -30px;
-		background-size: cover;
-	}
-
 	@include large-and-above {
 		background: url(../images/Big_bg.jpg) center -60px;
 		background-size: cover;
-	}
-}
-
-// Placeholders
-// =================
-%logo {
-	float: left;
-	margin-left: 10px;
-	color: $logo_main_color;
-	@include clearfix();
-
-	.first-part {
-		float: left;
-
-		.les {
-			display: block;
-			font-size: 1.65em;
-		}
-
-		.david {
-			display: block;
-		}
-	}
-
-	.et {
-		float: left;
-		padding: 0 3px;
-		font-size: 3.3em;
-		color: $main_background_color;
-		line-height: 0.85em;
-	}
-
-	.goliath {
-		float: left;
-		font-size: 3.3em;
-		line-height: 0.85em;
 	}
 }
 
@@ -80,250 +39,89 @@ body {
 	}
 }
 
-#content-wrapper {
-	position: relative;
-	height: 100%;
-	@include clearfix();
+.content-wrapper {
+	height: 0;
+	padding-bottom: 105.4%;
+	background: url(../images/Mobile_bg.jpg) 0 -50px;
+	background-size: cover;
 
-	.contact-wrapper & {
-		height: auto;
+	@include medium-and-above {
+		background: url(../images/Tablet_bg.jpg) 0 -30px;
+		background-size: cover;
 	}
 
-	@include small-and-below-landscape {
-		height: auto;
-	}
-
-	// Menu for home page
-	.home-menu-wrapper {
-		float: right;
-		padding-right: 10px;
-
-		@include large-and-above {
-			margin-top: 4.5em;
-		}
-
-		@include xlarge-and-above {
-			margin-top: 0;
-		}
-
-		@include small-and-below-landscape {
-			margin-bottom: 1.5em;
-		}
-
-		.menu-link {
-			@extend %menu-link-style2;
-
-			@include large-and-above {
-				margin-top: 0.5em;
-				border: 4px solid $main_background_color;
-				background-color: transparentize($logo_secondary_color, 0.2);
-				font-size: 3.5em;
-
-				&:hover {
-					border: 4px solid $logo_secondary_color;
-					color: $logo_secondary_color;
-				}
-			}
-
-			@include xlarge-and-above {
-				display: inline-block;
-				margin-left: 0.7em;
-				margin-top: 10px;
-				background-color: transparent;
-				border: 2px solid $main_background_color;
-				font-size: 2em;
-
-				&:hover {
-					border: 2px solid $main_background_color;
-				}
-			}
-		}
-	}
-
-	// Menu for other pages
-	.menu-wrapper {
-		display: block;
-		width: 100%;
-		background-color: $main_background_color;
-
-		@include large-and-above {
-			margin-top: 10px;
-			padding-bottom: 10px;
-			background-color: transparent;
-		}
-	}
-
-	.mobile-menu-wrapper {
-		position: relative;
-		@include clearfix();
-		z-index: 2;
-
-		@include large-and-above {
-			display: none;
-		}
-
-		.logo {
-			@extend %logo;
-			display: block;
-			margin: 5px 0 10px 10px;
-			padding-top: 1px;
-			border: {
-				top: 4px solid $logo_secondary_color;
-				bottom: 4px solid $logo_secondary_color;
-			}
-			font-size: 0.7em;
-
-			.et {
-				color: $logo_secondary_color;
-			}
-
-			@include medium-and-above {
-				position: relative;
-				top: 5px;
-			}
-
-			@include large-and-above {
-				display: none;
-			}
-		}
-	}
-
-	.menu-logo {
-		float: left;
-		width: 183px;
-		height: auto;
-		margin: 5px 0 5px 8px;
-	}
-
-	// Checkbox for menu toggle
-	#mobile-menu-toggle {
-		display: none;
-
-		&:checked + .mobile-menu-links-wrapper {
-			display: block;
-		}
-	}
-
-	.mobile-menu-toggle {
-		@extend %menu-link-style1;
-		float: right;
-		margin: {
-			top: 5px;
-			right: 10px;
-		}
-		cursor: pointer;
-
-		@include medium-and-above {
-			display: none;
-		}
-	}
-
-	.mobile-menu-links-wrapper {
-		display: none;
-		position: absolute;
-		top: 46px;
-		width: 100%;
-		padding-bottom: 10px;
-		background-color: $main_background_color;
-
-		@include medium-and-above {
-			display: none;
-		}
-
-		.menu-link {
-			margin: 5px 10px 0;
-			@extend %menu-link-style2;
-			border: none;
-			background-color: $logo_main_color;
-		}
-	}
-
-	.desktop-menu-wrapper {
-		display: none;
-		@include clearfix();
-
-		@include medium-and-above {
-			position: relative;
-			top: -45px;
-			display: block;
-			float: right;
-			margin-right: 10px;
-			z-index: 5;
-		}
-
-		@include large-and-above {
-			top: 0;
-			float: none;
-			padding-bottom: 30px;
-		}
-
-		.logo {
-			@extend %logo;
-			display: none;
-
-			@include large-and-above {
-				display: block;
-				font-size: 1.5em;
-			}
-
-			@include xlarge-and-above {
-				font-size: 2em;
-			}
-		}
-
-		.menu-link {
-			@extend %menu-link-style1;
-
-			@include medium-and-above {
-				float: right;
-				margin-left: 0.8em;
-				margin-top: 0;
-			}
-
-			@include large-and-above {
-				border: 2px solid $main_background_color;
-				color: $main_background_color;
-				@include transition(all 0.5s ease);
-
-				&:hover {
-					color: $logo_secondary_color;
-					background-color: $main_background_color;
-				}
-			}
-		}
-	}
-
-	// Only on home page for now
-	.pre-footer {
-		position: absolute;
-		width: 100%;
-		bottom: 0;
-		margin-bottom: 30px;
-
-		@include small-and-below-landscape {
-			position: relative;
-			margin-bottom: 0;
-			clear: both;
-		}
-
-		.triangle {
-			width: 100%;
-			height: auto;
-		}
-
-		.logo-wrapper {
-			padding-bottom: 10px;
-			background: $main_background_color;
-
-			.logo {
-				width: 48%;
-				height: auto;
-				max-width: 150px;
-				margin: 0 auto 15px;
-			}
-		}
+	@include large-and-above {
+		padding-bottom: 35%;
+		background: none;
 	}
 }
+
+.award-wrapper {
+	position: relative;
+	top: 15px;
+	height: 50px;
+	width: 180px;
+	margin: 0 auto;
+	padding-left: 60px;
+	background-color: $main_background_color;
+	font-size: 1.1em;
+	color: $logo_main_color;
+	z-index: 2;
+
+	&::before {
+		position: absolute;
+		left: -33px;
+		top: 10px;
+		content: url('../images/ribbon-left-side.png');
+		z-index: -1;
+	}
+
+	&::after {
+		position: absolute;
+		right: -33px;
+		top: 10px;
+		content: url('../images/ribbon-right-side.png');
+		z-index: -1;
+	}
+
+	@include medium-and-above {
+		height: 70px;
+		width: 300px;
+		padding-left: 140px;
+		font-size: 1.8em;
+
+		&::before {
+			left: -45px;
+			top: 14px;
+			content: url('../images/ribbon-left-side_70.png');
+		}
+
+		&::after {
+			right: -45px;
+			top: 14px;
+			content: url('../images/ribbon-right-side_70.png');
+		}
+	}
+
+	@include xlarge-and-above {
+		margin: 0 0 0 65px;
+	}
+}
+
+.award-link {
+	position: relative;
+	top: 6px;
+
+	@include medium-only {
+		top: -32px;
+	}
+
+	&:link,
+	&:visited {
+		color: $logo_main_color;
+	}
+}
+
 
 //=======================
 // Page contact
@@ -353,15 +151,19 @@ body {
 	max-width: 1600px;
 
 	@include large-and-above {
+		margin: {
+			top: 30px;
+		}
 		background-color: $main_background_color;
 		border-top: 2px solid $logo_main_color;
+		border-bottom: 2px solid $logo_main_color;
 		clear: both;
 		@include clearfix();
 	}
 
 	@include xlarge-and-above {
 		width: 90%;
-		margin: 0 auto;
+		margin: 30px auto 70px;
 		border: none;
 	}
 }
@@ -452,9 +254,11 @@ body {
 	}
 
 	&:hover {
-		&:link,
-		&:visited {
-			color: $logo_main_color;
+		@include large-and-above {
+			&:link,
+			&:visited {
+				color: $logo_main_color;
+			}
 		}
 
 		&::before {
@@ -549,6 +353,7 @@ body {
 	margin-top: 30px;
 	padding-bottom: 80%;
 	border-top: 2px solid $logo_secondary_color;
+	border-bottom: 2px solid $logo_secondary_color;
 
 	@include medium-and-above {
 		padding-bottom: 60%;
@@ -562,112 +367,5 @@ body {
 		border: none;
 		box-sizing: border-box;
 		border-left: 2px solid $logo_main_color;
-	}
-}
-
-// Social area
-// ======================
-.social-wrapper {
-	width: 100%;
-	background-color: $logo_main_color;
-	text-align: center;
-	padding: {
-		top: 7px;
-		bottom: 5px;
-	}
-	max-width: 1600px;
-
-	@include xlarge-and-above {
-		width: 90%;
-		margin: 0 auto;
-	}
-}
-
-.social-icon {
-	display: inline-block;
-	height: 50px;
-	width: 50px;
-	margin: 0 5px;
-	box-sizing: border-box;
-	border: 1px solid $logo_main_color;
-	@include border-radius(100%);
-	background-color: $main_background_color;
-	overflow: hidden;
-	transition: 0.5s all;
-
-	&:hover {
-		background-color: $logo_secondary_color;
-		border: 1px solid $main_background_color;
-	}
-
-	.social-logo-img {
-		@include border-radius(100%);
-
-		&.overlay {
-			position: relative;
-			top: -50px;
-			opacity: 0;
-			transition: 0.5s all;
-
-			&:hover {
-				opacity: 1;
-			}
-		}
-	}
-}
-
-//=======================
-// Footer
-//=======================
-footer {
-	width: 100%;
-	position: absolute;
-	bottom: 0;
-	padding: 10px 0 0;
-	background: $main_background_color;
-	@include clearfix();
-	color: $logo_secondary_color;
-
-	.contact-wrapper & {
-		position: relative;
-		bottom: auto;
-	}
-
-	@include small-and-below-landscape {
-		position: relative;
-		bottom: auto;
-	}
-
-	.contact-wrapper & {
-		@include xlarge-and-above {
-			width: 90%;
-			max-width: 1600px;
-			margin: 0 auto;
-		}
-	}
-
-	.footer-address {
-		float: left;
-		padding: 7px;
-
-		&::before {
-			content: "\e243";
-			position: relative;
-			top: 2px;
-			font-family: 'glyphicons';
-		}
-	}
-
-	.footer-phone {
-		float: right;
-		padding: 7px;
-
-		&::before {
-			content: "\e443";
-			position: relative;
-			top: 3px;
-			left: -4px;
-			font-family: 'glyphicons';
-		}
 	}
 }

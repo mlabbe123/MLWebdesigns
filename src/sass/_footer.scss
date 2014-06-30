@@ -1,0 +1,205 @@
+footer {
+	width: 100%;
+	padding: 10px 0 0;
+	background: $main_background_color;
+	@include clearfix();
+	color: $logo_secondary_color;
+
+	@include medium-and-above {
+		@include clearfix();
+	}	
+}
+
+.footer-top {
+	@include xlarge-and-above {
+		width: 90%;
+		max-width: 1600px;
+		margin: 0 auto;
+	}
+
+	.logo {
+		width: 48%;
+		height: auto;
+		max-width: 250px;
+		margin: 0 auto 25px;
+
+		@include medium-and-above {
+			float: left;
+			margin-left: 15px;
+		}
+
+		@include xlarge-and-above {
+			margin-left: 0;
+		}
+	}
+}
+
+@include medium-and-above {
+	.footer-infos {
+		float: right;
+		margin-right: 8px;
+
+		@include xlarge-and-above {
+			margin-right: 0;
+		}
+	}
+}
+
+.footer-phone {
+	display: block;
+	padding: 7px;
+	text-align: center;
+	font-size: 1.5em;
+
+	&::before {
+		content: "\e443";
+		position: relative;
+		top: 3px;
+		left: -4px;
+		font-family: 'glyphicons';
+	}
+}
+
+.footer-address {
+	display: block;
+	padding: 7px;
+	text-align: center;
+	font-size: 1.5em;
+
+	&::before {
+		content: "\e243";
+		position: relative;
+		top: 2px;
+		font-family: 'glyphicons';
+	}
+}
+
+.social-wrapper {
+	display: block;
+	width: 260px;
+	margin: 20px auto; 
+	list-style: none;
+	text-align: center;
+
+	@include medium-and-above { 
+		margin: {
+			top: 25px;
+			right: 7px;
+		}
+		float: right;
+	}
+
+	@include xlarge-and-above {
+		margin-right: 0;
+	}
+}
+
+.social-item {
+	display: inline-block;
+	position: relative;
+	width: 70px;
+	height: 70px;
+	margin: 0 10px;
+	//background-color: pink;
+
+	&.first {
+		margin-left: 0;
+	}
+
+	&.last {
+			margin-right: 0;
+	}
+
+	.icon {
+		position: relative;
+		display: block;
+		height: 64px;
+		width: 64px;
+		border: 3px solid $logo_main_color;
+		background-color: $logo_main_color;
+		@include border-radius(100%);
+		transition: all 0.5s ease;
+
+		&:hover {
+			//border: 3px solid $logo_secondary_color;
+			@include transform(scale(1.1, 1.1));
+			background-color: $logo_secondary_color;
+		}
+
+		.facebook,
+		.tripadvisor,
+		.google {
+			position: relative;
+		}
+
+		.facebook {
+			margin: 10px auto 0;
+		}
+
+		.tripadvisor {
+			margin: 16px auto 0;
+		}
+
+		.google {
+			margin: 5px auto 0;
+		}
+	}
+}
+
+.footer-bottom {
+	padding: 10px;
+	background-color: $logo_secondary_color;
+	color: $main_background_color;
+
+	@include medium-and-above {
+		clear: both;
+		@include clearfix();
+	}
+
+	.separator {
+		display: block;
+		height: 1px;
+		width: 50%;
+		margin: 10px auto;
+		background-color: $main_background_color;
+
+		@include medium-and-above {
+			display: none;
+		}
+	}
+}
+
+@include medium-and-above {
+	.footer-address,
+	.footer-phone {
+		margin-top: 15px;
+		text-align: right;
+		font-size: 1.5em;
+	}
+}
+
+.legal{
+	display: block;
+	text-align: center;
+	font-size: 0.9em;
+
+	@include medium-and-above {
+		float: left;
+		margin-top: 2px;
+	}
+}
+
+.mlwebdesigns {
+	display: block;
+	text-align: center;
+	font-size: 1.2em;
+
+	&:link,
+	&:visited {
+		color: $main_background_color;
+	}
+
+	@include medium-and-above {
+		float: right;
+	}
+}

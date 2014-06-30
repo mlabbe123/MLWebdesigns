@@ -20,6 +20,10 @@
   @media only screen and (min-width : 768px) { @content; }
 }
 
+@mixin medium-only {
+  @media only screen and (min-width : 768px) and (max-width : 1023px) { @content; }
+}
+
 @mixin large-and-above {
   @media only screen and (min-width : 1024px) { @content; }
 }
