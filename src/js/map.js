@@ -5,7 +5,7 @@ var map_canvas = document.getElementById('map-wrapper'),
 function initialize() {
 	var map_options = {
 			center: map_center,
-			zoom: 12,
+			zoom: 14,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			disableDefaultUI: true
 		},
@@ -25,26 +25,6 @@ function initialize() {
 		    { color: '#d94527' }
 	    ]
 	  }, {
-	    featureType: 'road',
-	    elementType: 'labels.text',
-	    stylers: [
-	    	{ weight: 10 }
-	    ]
-	  }, {
-	    featureType: 'road',
-	    elementType: 'labels.text.fill',
-	    stylers: [
-	    	{ color: '#f6fcff' },
-	    	{ weight: 10 }
-	    ]
-	  }, {
-	    featureType: 'road',
-	    elementType: 'labels.text.stroke',
-	    stylers: [
-	    	{ color: '#000000' },
-	    	{ weight: 0.5 }
-	    ]
-	  }, {
 	    featureType: 'landscape',
 	    elementType: 'geometry',
 	    stylers: [
@@ -53,6 +33,15 @@ function initialize() {
 	      { saturation: 82 },
 	      { lightness: 96 }
 	    ]
+	  },
+	  { 
+	  	featureType: "landscape",
+	  	elementType: "geometry.fill", 
+	  	stylers: [
+	  		{ visibility: "on" },
+	  		{ hue: "#006eff" },
+	  		{ color: "#f6fcff" } 
+	  	] 
 	  }
 	]);
 

@@ -9,10 +9,10 @@
 		background-color: $main_background_color;
 		font-size: 3em;
 		line-height: 0.7em;
-		color: $logo_secondary_color;
+		color: $logo_main_color;
 		border: {
-			top: 5px solid $logo_main_color;
-			bottom: 5px solid $logo_main_color;
+			top: 5px solid $logo_secondary_color;
+			bottom: 5px solid $logo_secondary_color;
 		}
 	}
 }

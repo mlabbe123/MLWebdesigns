@@ -13,24 +13,32 @@ html {
 	font-family: 'Goliath';
 }
 
-html,
-body {
-	height: 100%;
-}
-
 body {
 	@include large-and-above {
-		background: url(../images/Big_bg.jpg) center -60px;
-		background-size: cover;
+		background: url(../images/Big_bg.jpg) fixed center top no-repeat, $main_background_color;
 	}
 }
 
-#main-wrapper {
-	position: relative;
-	height: 100%;
+.fleft {
+	float: left;
+}
 
+.fright {
+	float: right;
+}
+
+#main-wrapper {
 	&.contact-wrapper {
 		background: url(../images/Contact_mobile_bg.jpg) center fixed;
+		background-size: cover;
+
+		@include large-and-above {
+			background: none;
+		}
+	}
+
+	&.menus-wrapper {
+		background: url(../images/Menus_mobile_bg.jpg) center fixed;
 		background-size: cover;
 
 		@include large-and-above {
@@ -60,9 +68,9 @@ body {
 	position: relative;
 	top: 15px;
 	height: 50px;
-	width: 180px;
+	width: 175px;
 	margin: 0 auto;
-	padding-left: 60px;
+	padding-left: 75px;
 	background-color: $main_background_color;
 	font-size: 1.1em;
 	color: $logo_main_color;
@@ -82,6 +90,10 @@ body {
 		top: 10px;
 		content: url('../images/ribbon-right-side.png');
 		z-index: -1;
+	}
+
+	@include medium-only {
+		top: 30px;
 	}
 
 	@include medium-and-above {
@@ -118,7 +130,22 @@ body {
 
 	&:link,
 	&:visited {
-		color: $logo_main_color;
+		color: #5b9746;
+	}
+
+	&::before {
+		position: absolute;
+		content: url('../images/tripadvisor-certificate_tiny.png');
+		width: 65px;
+		height: 65px;
+		left: -72px;
+		top: -15px;
+
+		@include medium-and-above {
+			content: url('../images/tripadvisor-certificate_medium.png');
+			left: -120px;
+			top: -22px;
+		}
 	}
 }
 
@@ -126,7 +153,8 @@ body {
 //=======================
 // Page contact
 //=======================
-.contact-header {
+.contact-header,
+.menus-header {
 	background-color: transparentize($logo_secondary_color, 0.2);
 	padding: 5px 0;
 	text-align: center;
@@ -146,7 +174,14 @@ body {
 	}
 }
 
-.contact-infos-wrapper {
+@include medium-and-above {
+	.menus-header {
+		display: none;
+	}
+}
+
+.contact-infos-wrapper,
+.menus-infos-wrapper {
 	text-align: center;
 	max-width: 1600px;
 
@@ -164,6 +199,17 @@ body {
 	@include xlarge-and-above {
 		width: 90%;
 		margin: 30px auto 70px;
+		border: none;
+	}
+}
+
+.menus-infos-wrapper {
+	@include large-and-above {
+		margin: {
+			top: 30px;
+			bottom: 50px;
+		}
+		background-color: transparent;
 		border: none;
 	}
 }
@@ -347,25 +393,454 @@ body {
 
 // Google Map
 // ======================
-#map-wrapper {
-	width: 100%;
-	height: 0;
+.map-wrapper {
 	margin-top: 30px;
-	padding-bottom: 80%;
 	border-top: 2px solid $logo_secondary_color;
 	border-bottom: 2px solid $logo_secondary_color;
-
-	@include medium-and-above {
-		padding-bottom: 60%;
-	}
 
 	@include large-and-above {
 		width: 50%;
 		float: right;
+		height: 0;
 		padding-bottom: 40%;
 		margin-top: 0;
 		border: none;
-		box-sizing: border-box;
-		border-left: 2px solid $logo_main_color;
+	}
+
+	a {
+		position: relative;
+		display: block;
+		overflow: hidden;
+
+		@include large-and-above {
+			display: none;
+		}
+
+		img {
+			width: 100%;
+		}
+	}
+
+	#map-wrapper {
+		display: none;
+
+		@include large-and-above {
+			display: block;
+			height: 0;
+			padding-bottom: 80%; 	
+			box-sizing: border-box;
+			border-left: 2px solid $logo_main_color;
+		}
+	}
+}
+
+//=======================
+// Page menus
+//=======================
+.menus-intro {
+	padding: 30px 0;
+	border: {
+		left: 10px solid $main_background_color;
+		right: 10px solid $main_background_color;
+		top: 15px solid $main_background_color;
+		bottom: 20px solid $main_background_color;
+	} 
+	background-color: transparentize($logo_main_color, 0.2);
+	text-align: left;
+	font-size: 1.3em;
+	color: $main_background_color;
+
+	span {
+		display: block;
+		max-width: 500px;
+		padding: 0 10px;
+		margin: 0 auto;
+		text-align: center;
+
+		@include medium-and-above {
+			font-size: 1.2em;
+		}
+	}
+
+	@include medium-and-above {
+		max-width: 500px;
+		padding: 15px;
+		margin: 60px auto 30px;
+		border: {
+			left: 0;
+			right: 0;
+			top: 1px solid $main_background_color;
+			bottom: 1px solid $main_background_color;
+		}
+		color: $main_background_color;
+	}
+
+	@include large-and-above {
+		margin: 0 auto 30px;
+	}
+}
+
+.menus-speciaux {
+	border: {
+		left: 10px solid $main_background_color;
+		right: 10px solid $main_background_color;
+		bottom: 20px solid $main_background_color;
+	}
+	color: $main_background_color;
+
+	&.first {
+		@include medium-and-above {
+			margin-right: 30px;
+			border: {
+				left: 0;
+				right: 0;
+				top: 1px solid $main_background_color;
+				bottom: 1px solid $main_background_color;
+			}
+		}
+	}
+
+	@include medium-and-above {
+		display: inline-block;
+		width: 50%;
+		max-width: 300px;
+		margin: {
+			top: 20px;
+			bottom: 60px;
+		}
+		border: {
+			left: 0;
+			right: 0;
+			top: 1px solid $main_background_color;
+			bottom: 1px solid $main_background_color;
+		}
+	}
+}
+
+.menus-speciaux-titre {
+	padding: 10px 0;
+	background-color: transparentize($logo_secondary_color, 0.2);
+	border-bottom: 1px solid $main_background_color; 
+	text-align: center;
+	font-size: 2em;
+
+	&.plat {
+		&::before {
+			content: "\e277";
+			margin-right: 10px;
+			font-family: 'glyphicons';
+			font-size: 0.7em;
+		}
+	}
+
+	&.biere {
+		&::before {
+			content: "\e275";
+			margin-right: 10px;
+			font-family: 'glyphicons';
+			font-size: 0.7em;
+		}
+	}
+}
+
+.menus-speciaux-details {
+	padding: 15px 0;
+	background-color: transparentize($logo_main_color, 0.2);
+	text-align: center;
+	font-size: 1.2em;
+}
+
+.menus-speciaux-details-nom,
+.menus-speciaux-details-prix {
+	display: block;
+}
+
+.menus-speciaux-details-nom {
+	margin-bottom: 5px;
+}
+
+.toggle-menus-wrapper {
+	border: {
+		top: 2px solid $logo_main_color;
+		bottom: 2px solid $logo_main_color;
+	}
+	background-color: $main_background_color;
+
+	@include medium-and-above {
+		border: none;
+	}
+}
+
+.toggle-menus-reguliers,
+.toggle-menus-groupes {
+	display: inline-block;
+	width: 50%;
+	padding: 10px 0;
+	background-color: lighten($logo_secondary_color, 35);
+	font-size: 1.3em;
+	color: $logo_main_color;
+	cursor: pointer;
+
+	&:hover {
+		background-color: lighten($logo_secondary_color, 20);
+		color: $main_background_color;
+	}
+
+	&:active {
+		background-color: darken($logo_secondary_color, 20);
+	}
+
+	&.is-selected {
+		background-color: $logo_secondary_color;
+		color: $main_background_color;
+	}
+
+	@include medium-and-above {
+		width: auto;
+		padding: 10px;
+	}
+}
+
+.menus-normal,
+.menus-groupes {
+	padding-top: 20px;
+	background-color: $main_background_color;
+
+	&.is-hidden {
+		display: none;
+	}
+}
+
+.menu-item-wrapper {
+	padding: 20px 0;
+	background-color: $main_background_color;
+	text-align: center;
+
+	@include medium-and-above {
+		&.twowide {
+			width: 50%;
+			float: left;
+
+			&.last {
+				margin: {
+					left: auto;
+					right: auto;
+				} 
+				float: none;
+				clear: both;
+			}
+		}
+	}
+
+	@include large-and-above {
+		&.twowide {
+			.menu-item-list {
+				max-width: 400px;
+				margin: {
+					left: auto;
+					right: auto;
+				}
+			}
+		}
+	}
+
+	@include immense {
+		&.twowide {
+			.menu-item-list {
+				max-width: 600px;
+			}
+		}
+	}
+
+	header {
+		display: inline-block;
+		padding-top: 4px;
+		border: {
+			top: 4px solid $logo_secondary_color;
+			bottom: 4px solid $logo_secondary_color;
+		}
+		color: $logo_main_color;
+		font-size: 2em;
+		line-height: 0.85;
+	}
+}
+
+.menu-item-subtitle {
+	margin: {
+		left: 5px;
+		top: 20px;
+	}
+	color: $logo_main_color;
+	font-size: 1.3em;
+
+	.subtitle-label {
+		display: inline-block;
+		position: relative;
+		top: -4px;
+	}
+
+	.plus-sign {
+		position: relative;
+		top: 3px;
+		margin: 0 2px;
+		color: $logo_secondary_color;
+		font-size: 1.4em;
+	}
+
+	.subtitle-price {
+		margin-left: 7px;
+		font-size: 1.6em;
+		color: $logo_secondary_color;
+	}
+}
+
+.menu-item-subsubtitle {
+	color: $logo_secondary_color;
+}
+
+.menu-item-content {
+	margin: 20px 0 0;
+	color: $text_color;
+	font-size: 1.3em;
+	@include clearfix();
+
+	.separator {
+		display: block;
+		color: $logo_secondary_color;
+		font-size: 1.8em;
+	}
+
+	.small {
+		display: block;
+		font-size: 0.7em;
+	}
+
+	.menu-section-title {
+		display: block;
+		margin: 20px 0 0;
+		padding-left: 20px;
+		text-align: left;
+		text-decoration: underline;
+		font-size: 1.2em;
+		color: darken($text_color, 10);
+
+		@include medium-and-above {
+			background-color: darken($main_background_color, 3);
+			padding: 6px 0 6px 20px;
+		}
+	}
+
+	.menu-section-subtitle {
+		display: block;
+		font-size: 0.8em;
+		text-align: left;
+		margin: {
+			top: 2px;
+			bottom: 20px;
+			left: 20px;
+		}
+	}
+
+	&.alacarte {
+		max-width: 960px;
+		margin: {
+			left: auto;
+			right: auto;
+		}		
+	}
+
+	@include medium-and-above {
+		width: 80%;
+		margin: {
+			left: auto;
+			right: auto;
+		}
+	}
+
+	@include large-and-above {
+		&.cinqasept {
+			max-width: 700px;
+			margin: 20px auto 0;
+			@include clearfix();
+
+			.separator {
+				display: none;
+			}
+		}
+	}
+
+	.menu-item-list {
+		margin-top: 10px;
+		text-align: left;
+		@include clearfix();
+		
+		li {
+			padding: 3px 20px;
+			@include clearfix();
+
+			&:nth-of-type(2n) {
+				background-color: darken($main_background_color, 3);
+			}
+		}
+
+		&.text-center {
+			text-align: center;
+		}
+
+		@include large-and-above {
+			&.cinqasept--left {
+				float: left;
+				width: 40%
+			}
+
+			&.cinqasept--right {
+				position: relative;
+				float: right;
+				width: 40%;
+
+				&::before {
+					content: "+";
+					position: absolute;
+					top: 30%;
+					left: -90px;
+					color: $logo_secondary_color;
+					font-size: 3em;
+				}
+			}
+		}
+
+		@include medium-and-above {
+			&.divided {
+				li {
+					width: 44.79%;
+					float: left;
+
+					&:nth-child(2n) {
+						background-color: transparent;
+					}
+				}
+			}
+		}
+
+		.fleft {
+			width: 85%;
+		}
+
+		.fright {
+			width: 10%;
+			text-align: right;
+		}
+	}
+
+	.menu-item-labels {
+		float: left;
+		width: 90%;
+		text-align: left;
+	}
+
+	.menu-item-price {
+		float: right;
+		width: 10%;
+		text-align: right;
 	}
 }

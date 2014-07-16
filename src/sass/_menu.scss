@@ -168,7 +168,7 @@
 		}
 
 		@include large-and-above {
-			border: 2px solid $main_background_color;
+			border: 1px solid $main_background_color;
 			color: $main_background_color;
 			@include transition(all 0.5s ease);
 
