@@ -16,6 +16,7 @@ html {
 body {
 	@include large-and-above {
 		background: url(../images/Big_bg.jpg) fixed center top no-repeat, $main_background_color;
+		background-size: cover;
 	}
 }
 
@@ -59,7 +60,8 @@ body {
 	}
 
 	@include large-and-above {
-		padding-bottom: 35%;
+		padding-bottom: 0;
+		min-height: 600px;
 		background: none;
 	}
 }
@@ -125,7 +127,7 @@ body {
 	top: 6px;
 
 	@include medium-only {
-		top: -32px;
+		//top: -32px;
 	}
 
 	&:link,
