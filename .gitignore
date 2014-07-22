@@ -9,10 +9,11 @@ ehthumbs.db
 Thumbs.db
 
 # sass cache folder #
-*/.sass-cache/
+.sass-cache/
+.sass-cache/*
 
 # compass config #
-*/config.rb
+config.rb
 
 # CSS #
 *.css
