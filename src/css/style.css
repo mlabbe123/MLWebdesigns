@@ -392,27 +392,23 @@ nav .nav-band:hover {
 .box-band.box-content .mug {
   float: left;
   width: 120px;
-  height: 120px;
-  margin: 5px 0 0 10px;
-  background-image: url('../img/band/all.png');
+  height: 155px;
+  background-image: url('../img/band/band.png');
 }
 .box-band .mug.benji {
   background-position: 0 0;
-}
-.box-band .mug.jono {
-  background-position: -240px 0;
 }
 .box-band .mug.dizzy {
   background-position: -120px 0;
 }
 .box-band .mug.sarah {
-  background-position: -480px 0;
+  background-position: -240px 0;
 }
 .box-band .mug.seb {
-  background-position: -600px 0;
+  background-position: -360px 0;
 }
 .box-band .mug.josh {
-  background-position: -360px 0;
+  background-position: -480px 0;
 }
 .box-band .member {
   margin: 40px 0 0 140px;
