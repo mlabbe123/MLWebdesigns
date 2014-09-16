@@ -12,7 +12,7 @@ app.AppView = Backbone.View.extend({
         'keypress #new-todo': 'createOnEnter',
         'click #clear-completed': 'clearCompleted',
         'click #toggle-all': 'toggleAllCompleted'
-    }
+    },
 
     // At initialization we bind to the relevant events on the 'Todos'
     // collection, when items are added or changed.
@@ -68,7 +68,7 @@ app.AppView = Backbone.View.extend({
     addAll: function() {
         this.$('#todo-list').html();
         app.Todos.each(this.addOne, this);
-    }
+    },
 
     filterOne: function(todo) {
         todo.trigger('visible');
