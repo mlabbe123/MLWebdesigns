@@ -166,7 +166,7 @@ header {
 header .logo {
   position: absolute;
   width: 125px;
-  bottom: -17px;
+  bottom: -30px;
   opacity: 0.8;
 }
 header .logo:hover {
@@ -189,7 +189,7 @@ nav ul li {
 nav a {
   font-size: 16px;
   text-decoration: none;
-  color: #ccc;
+  color: #a3a5a0;
 }
 nav a:hover {
   color: #fff;
@@ -333,6 +333,9 @@ nav .nav-gigs:hover {
   color: #777;
   font-size: 13px;
 }
+.view-cap, .view-container-border { background-color:black; }
+.mv-daynames-table { color:white; background:black; }
+.mv-event-container { border-top:1px solid black; }
 .time {
   margin: 0 0 10px 0;
   color: #ddd;
@@ -376,13 +379,13 @@ blockquote {
 }
 
 .box-band .box-container {
-  border-color: #a43131;
+  border-color: #8d1e2f;
 }
 .box-band h2, .box-band h3 {
-  color: #a43131;
+  color: #8d1e2f;
 }
 nav .nav-band:hover {
-  color: #a43131;
+  color: #8d1e2f;
 }
 .box-band.box-content .box-container {
   text-align: center;
@@ -422,9 +425,6 @@ nav .nav-band:hover {
 
 
 .box-photo {
-}
-nav .nav-photo:hover {
-  border-top: 3px solid #fff;
 }
 .box-photo.box-content .box-container {
   border: 0;
@@ -470,9 +470,6 @@ nav .nav-photo:hover {
 }
 .box-video h3 {
   color: #777;
-}
-nav .nav-video:hover {
-  border-top: 3px solid #fff;
 }
 
 .box-store .box-container {
