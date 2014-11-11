@@ -27,13 +27,14 @@ $(document).ready(function() {
   // Slideshow
   (function() {
     var images = [
-      'img/photos/slideshow/1.jpeg', 
-      'img/photos/slideshow/2.jpeg', 
-      'img/photos/slideshow/3.jpeg', 
-      'img/photos/slideshow/4.jpeg'
+      'img/photos/slideshow/1.jpeg',
+      'img/photos/slideshow/2.jpeg',
+      'img/photos/slideshow/3.jpeg',
+      'img/photos/slideshow/4.jpeg',
+      'img/photos/slideshow/5.jpeg',
     ];
     var duration = 8000;
-    
+
     var index = 0;
     var $slides = $('.slideshow');
 
@@ -54,7 +55,7 @@ $(document).ready(function() {
       }
       next();
     };
-    
+
     var next = function() {
       $slides.fadeTo(1000, 0, function() {
         $slides
@@ -65,7 +66,7 @@ $(document).ready(function() {
       ready   = false;
 
       index = (index + 1) % images.length;
-      
+
       var preload = (index + 1) % images.length;
       var image = new Image();
       image.src = images[preload];
@@ -92,7 +93,7 @@ $(document).ready(function() {
 
     var scroll = function(e) {
       if ($doc.width() < 600) {
-        $header.css('left', 0); 
+        $header.css('left', 0);
         $h1.css('opacity', 1);
         $slideshow.css('top', 0);
         return;
@@ -120,7 +121,7 @@ $(document).ready(function() {
     var $doc = $(document);
     var $win = $(window);
 
-    setTimeout(function() { 
+    setTimeout(function() {
       $('.demand').each(function() {
         var $this = $(this);
         $this.load(function() {
@@ -138,7 +139,7 @@ $(document).ready(function() {
     }, 4000);
   })();*/
 
-  // Images on demand 
+  // Images on demand
   // Unused: Using fancybox instead
   /*
   (function() {
@@ -184,7 +185,7 @@ $(document).ready(function() {
     $doc.scroll(scroll);
   })();*/
 
-  
+
   // Animated anchor links
   $('a[href*=#]').each(function() {
     $(this).click(function(e) {
