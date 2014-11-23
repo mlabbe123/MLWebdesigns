@@ -5,3 +5,50 @@
 @import 'fonts';
 
 /* declarations */
+
+
+html {
+    font-size: 14px;
+    color: #6d6a66;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+div {
+    //margin-top: 30px;
+    height: 100%;
+}
+
+.opensans {
+    font-family: $openSans_font;
+}
+
+.signika {
+    font-family: $signika_font;
+    letter-spacing: 1px
+}
+
+.gentium {
+    font-family: $gentiumBasic_font;
+    font-weight: 700;
+}
+
+.actor {
+    font-family: $actor_font;
+}
+
+h1 {
+    text-align: center;
+    font-size: 5rem;
+
+    .blue {
+        color:#68c7f3;
+    }
+
+    .orange {
+        color: #eb8a3c;
+    }
+}
