@@ -7,5 +7,10 @@ app.Book = Backbone.Model.extend({
         author: 'Haruki Murakami',
         releaseDate: 'Unknown',
         keywords: 'None'
+    },
+
+    parse: function( response ) { 
+        response.id = response._id; 
+        return response;
     }
 });
