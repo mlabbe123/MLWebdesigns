@@ -1,7 +1,9 @@
-@import 'compass';
 @import 'reset';
 @import 'variables';
 @import 'mixins';
 @import 'fonts';
 
 /* declarations */
+html {
+    color: blue;
+}

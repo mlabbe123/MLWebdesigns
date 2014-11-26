@@ -1,0 +1,1 @@
+$(document).ready(function(){var o;o="sisis",console.log("fuck yeah")});
