@@ -6,6 +6,7 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     uglify = require('gulp-uglify'),
     jade = require('gulp-jade'),
+    gzip = require('gulp-gzip'),
 
     // paths for src files
     paths = {
@@ -27,6 +28,7 @@ gulp.task('jadedev', function() {
 gulp.task('jadeprod', function() {
   gulp.src(paths.jade)
     .pipe(jade())
+    .pipe(gzip())
     .pipe(gulp.dest('../builds/production'));
 });
 
