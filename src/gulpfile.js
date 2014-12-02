@@ -76,7 +76,7 @@ gulp.task('sassprod', function () {
 
 // Rerun the task when a file changes
 gulp.task('watch', function() {
-    gulp.watch(paths.jade, ['jade']);
+    gulp.watch(paths.jade, ['jadedev']);
     gulp.watch(paths.sass, ['sassdev']);
     gulp.watch(paths.js, ['jsdev']);
 });
