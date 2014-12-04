@@ -2,7 +2,7 @@
 
 var app = app || {};
 
-app.AlbumLibraryView = Backbone.View.extend({
+app.AlbumLibraryView = Backbone.View.extend({ 
     el: '#albumLibraryContainer',
 
     events: {
@@ -34,9 +34,10 @@ app.AlbumLibraryView = Backbone.View.extend({
     addAlbum: function(event) {
         event.preventDefault();
 
-        var userTitle = $('#album_name').val();
-        console.log(userTitle)
+        var albumTitle = $('#albumTitle').val();
 
-        this.collection.add(new app.Album(userTitle));
+        this.collection.add(new app.Album({
+            albumTitle: albumTitle
+        }));
     }
 });

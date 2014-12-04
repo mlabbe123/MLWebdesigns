@@ -11,8 +11,8 @@
   </head>
   <body>
     <div id="albumLibraryContainer">
-      <label for="album_name">Nom de l'album</label>
-      <input id="album_name" type="text">
+      <label for="albumTitle">Nom de l'album</label>
+      <input id="albumTitle" type="text">
       <button id="addAlbum">Créer</button>
     </div>
     <script id="albumTemplate" type="text/template">
@@ -22,6 +22,7 @@
       <div class="album-title">
       	<span><%= albumTitle %></span>
       </div>
+      <a href="#" class="deleteAlbum">Effacer</a>
       
     </script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
