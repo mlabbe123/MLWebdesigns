@@ -17,13 +17,16 @@ html
 
 
 		script(id="albumTemplate" type="text/template").
-			<div class="album-preview">
-				<img src="<%= albumPreviewImg %>">
-			</div>
-			<div class="album-title">
-				<span><%= albumTitle %></span>
-			</div>
+			<a href="/<%= title %>" class="enterAlbum">
+				<div class="album-preview">
+					<img src="<%= albumPreviewImg %>">
+				</div>
+				<div class="album-title">
+					<span><%= title %></span>
+				</div>
+			</a>
 			<a href="#" class="deleteAlbum">Effacer</a>
+
 
 		script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
 		script.
@@ -45,6 +48,5 @@ html
 		script(src="js/collections/albumLibrary.js")
 		script(src="js/views/album.js")
 		script(src="js/views/albumLibrary.js")
+		script(src="js/routers/router.js")
 		script(src="js/app.js")
-
-		

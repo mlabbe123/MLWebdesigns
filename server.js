@@ -41,23 +41,84 @@ app.get('/api', function(request, response) {
 });
 
 //Connect to database
-// mongoose.connect('mongodb://localhost/library_database');
+mongoose.connect('mongodb://localhost/album_database');
 
 //Schemas
-// var Album = new mongoose.Schema({
-//     albumTitle: String
-// });
+var Album = new mongoose.Schema({
+    title: String
+});
 
 //Models
-// var AlbumModel = mongoose.model('Album', Album);
+var AlbumModel = mongoose.model('Album', Album);
 
-//Get a list of all books
-// app.get('/api/album', function(request, response) {
-//     return AlbumModel.find(function(err, albums) {
-//         if (!err) {
-//             return response.send(albums);
-//         } else {
-//             return console.log(err);
-//         }
-//     });
-// });
+//Get a list of all albums
+app.get('/api/albums', function(request, response) {
+    return AlbumModel.find(function(err, albums) {
+        if (!err) {
+            return response.send(albums);
+        } else {
+            return console.log(err);
+        }
+    });
+});
+
+//Insert a new album
+app.post('/api/albums', function(request, response) {
+    var album = new AlbumModel({
+        title: request.body.title
+    });
+
+    album.save(function(err) {
+        if (!err) {
+            return console.log('created');
+        } else {
+            return console.log(err);
+        }
+    });
+
+    return response.send(album);
+});
+
+//Get a single album by id
+app.get('/api/album/:id', function(request, response) {
+    return AlbumModel.findById(request.params.id, function(err, album) {
+        if (!err) {
+            return response.send(album);
+        } else {
+            return console.log(err);
+        }
+    });
+});
+
+//Update a book
+app.put('/api/albums/:id', function(request, response) {
+    console.log('Updating album ' + request.body.title);
+
+    return AlbumModel.findById(request.params.id, function(err, album) {
+        album.title = request.body.title;
+
+        return album.save(function(err) {
+            if (!err) {
+                console.log('album updated');
+            } else {
+                console.log(err);
+            }
+            return response.send(album);
+        });
+    });
+});
+
+//Delete a book
+app.delete('/api/albums/:id', function(request, response) {
+    console.log('Deleting album with id: ' + request.params.id);
+    return AlbumModel.findById(request.params.id, function(err, album) {
+        return album.remove(function(err) {
+            if (!err) {
+                console.log('Album removed');
+                return response.send('');
+            } else {
+                console.log(err);
+            }
+        });
+    });
+});

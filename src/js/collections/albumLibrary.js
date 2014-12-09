@@ -3,5 +3,6 @@
 var app = app || {};
 
 app.AlbumLibrary = Backbone.Collection.extend({
-    model: app.Album
+    model: app.Album,
+    url: '/api/albums'
 });

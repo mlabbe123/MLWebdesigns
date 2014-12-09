@@ -5,6 +5,11 @@ var app = app || {};
 app.Album = Backbone.Model.extend({
     defaults: {
         albumPreviewImg: 'https://placekitten.com/g/300/300',
-        albumTitle: 'Album sans nom'
+        title: 'Album sans nom'
+    },
+
+    parse: function(response) {
+        response.id = response._id;
+        return response;
     }
 });

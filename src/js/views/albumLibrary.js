@@ -11,9 +11,11 @@ app.AlbumLibraryView = Backbone.View.extend({
 
     initialize: function(initialAlbums) {
         this.collection = new app.AlbumLibrary(initialAlbums);
+        this.collection.fetch({reset: true});
         this.render();
 
         this.listenTo(this.collection, 'add', this.renderAlbum);
+        this.listenTo(this.collection, 'reset', this.render);
     },
 
     // render the album library
@@ -36,8 +38,8 @@ app.AlbumLibraryView = Backbone.View.extend({
 
         var albumTitle = $('#albumTitle').val();
 
-        this.collection.add(new app.Album({
-            albumTitle: albumTitle
+        this.collection.create(new app.Album({
+            title: albumTitle
         }));
     }
 });
