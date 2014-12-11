@@ -20,7 +20,9 @@ app.AlbumView = Backbone.View.extend({
 
     enterAlbum: function(event) {
         event.preventDefault();
-        console.log('hey!')
+
+        var destination = (event.currentTarget).getAttribute('href');
+        app.AlbumRouter.navigate(destination, {trigger: true});
     },
 
     deleteAlbum: function() {
