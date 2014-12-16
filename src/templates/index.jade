@@ -14,11 +14,4 @@ html
 
 		footer
 
-		script(src="js/app.js")
-		script.
-			Modernizr.load([
-				{
-					test: Modernizr.mq('only all'),
-					nope: 'js/lib/respond.js'
-				}
-			]);
+		script(data-main="js/app.js", src="js/lib/require.js")
