@@ -2,10 +2,9 @@
 
 var app = app || {};
 
-app.Album = Backbone.Model.extend({
+app.Photo = Backbone.Model.extend({
     defaults: {
-        albumPreviewImg: 'https://placekitten.com/g/300/300',
-        title: 'Album sans nom'
+        // TODO: Add default params
     },
 
     parse: function(response) {

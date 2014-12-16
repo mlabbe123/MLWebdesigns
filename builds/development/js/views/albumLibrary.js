@@ -11,9 +11,11 @@ app.AlbumLibraryView = Backbone.View.extend({
 
     initialize: function(initialAlbums) {
         this.collection = new app.AlbumLibrary(initialAlbums);
+        this.collection.fetch({reset: true});
         this.render();
 
         this.listenTo(this.collection, 'add', this.renderAlbum);
+        this.listenTo(this.collection, 'reset', this.render);
     },
 
     // render the album library
@@ -23,12 +25,12 @@ app.AlbumLibraryView = Backbone.View.extend({
         }, this);
     },
 
-    // render an album by creating an AlbumView and appending the element tot the AlbumLibrary's element
+    // render an album by creating an AlbumView and appending the element to the AlbumLibrary's element
     renderAlbum: function(item) {
-        var AlbumView = new app.AlbumView({
+        var albumView = new app.AlbumView({
             model: item
         });
-        this.$el.append(AlbumView.render().el);
+        this.$el.append(albumView.render().el);
     },
 
     addAlbum: function(event) {
@@ -36,8 +38,8 @@ app.AlbumLibraryView = Backbone.View.extend({
 
         var albumTitle = $('#albumTitle').val();
 
-        this.collection.add(new app.Album({
-            albumTitle: albumTitle
+        this.collection.create(new app.Album({
+            title: albumTitle
         }));
     }
 });

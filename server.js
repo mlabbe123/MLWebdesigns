@@ -90,7 +90,7 @@ app.get('/api/album/:id', function(request, response) {
     });
 });
 
-//Update a book
+//Update an album
 app.put('/api/albums/:id', function(request, response) {
     console.log('Updating album ' + request.body.title);
 
@@ -108,7 +108,7 @@ app.put('/api/albums/:id', function(request, response) {
     });
 });
 
-//Delete a book
+//Delete an album
 app.delete('/api/albums/:id', function(request, response) {
     console.log('Deleting album with id: ' + request.params.id);
     return AlbumModel.findById(request.params.id, function(err, album) {
@@ -122,3 +122,7 @@ app.delete('/api/albums/:id', function(request, response) {
         });
     });
 });
+
+// app.get("*", function(request, response) {
+//     response.sendfile("builds/development/index.html");
+// });

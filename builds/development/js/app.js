@@ -2,13 +2,8 @@
 
 var app = app || {};
 
-$(function() {
- 
-    var albums = [
-        { albumPreviewImg: 'https://placekitten.com/g/300/300', albumTitle: 'Album sans nom 1'},
-        { albumPreviewImg: 'https://placekitten.com/g/300/300', albumTitle: 'Album sans nom 2'},
-        { albumPreviewImg: 'https://placekitten.com/g/300/300', albumTitle: 'Album sans nom 3'}
-    ];
+console.log(app)
 
-    new app.AlbumLibraryView(albums);
+$(function() {
+    new app.AlbumLibraryView();
 });
