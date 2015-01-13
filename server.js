@@ -1,8 +1,9 @@
 // Module dependencies.
 var application_root = __dirname,
-    express = require('express'), //Web framework
-    path = require('path'), //Utilities for dealing with file paths 
-    mongoose = require('mongoose'); //MongoDB integration
+    express = require('express'), 
+    path = require('path'), 
+    mongoose = require('mongoose'),
+    Schema = mongoose.Schema;
 
 //Create server
 var app = express();
@@ -43,13 +44,40 @@ app.get('/api', function(request, response) {
 //Connect to database
 mongoose.connect('mongodb://localhost/album_database');
 
-//Schemas
-var Album = new mongoose.Schema({
-    title: String
+
+//======================
+// Schemas
+//======================
+
+var albumSchema = new Schema({
+    title: String,
+    previewImg: String,
+    creationDate: String
 });
 
-//Models
-var AlbumModel = mongoose.model('Album', Album);
+var photoSchema = new Schema({
+    url: String,
+    albumId: [{
+        type: Schema.Types.ObjectId,
+        ref: 'AlbumModel'
+    }]
+});
+
+
+//======================
+// Models
+//======================
+
+var AlbumModel = mongoose.model('Album', albumSchema);
+
+var PhotoModel = mongoose.model('Photo', photoSchema);
+
+
+//======================
+// Routes
+//======================
+
+// ============================== Album ==================================
 
 //Get a list of all albums
 app.get('/api/albums', function(request, response) {
@@ -70,7 +98,7 @@ app.post('/api/albums', function(request, response) {
 
     album.save(function(err) {
         if (!err) {
-            return console.log('created');
+            return console.log('album created');
         } else {
             return console.log(err);
         }
@@ -123,6 +151,34 @@ app.delete('/api/albums/:id', function(request, response) {
     });
 });
 
-// app.get("*", function(request, response) {
-//     response.sendfile("builds/development/index.html");
-// });
+// ============================== Photo ==================================
+
+//Insert a new photo
+app.post('/api/photos', function(request, response) {
+    var photo = new PhotoModel({
+        url: request.body.url,
+        albumId: request.body.albumId
+    });
+
+    photo.save(function(err) {
+        if (!err) {
+            return console.log('photo created');
+        } else {
+            return console.log(err);
+        }
+    });
+
+    return response.send(photo);
+});
+
+//Get a set of photo by album id.
+app.get('/api/photos', function(request, response) {
+    console.log('request: '+request)
+    return PhotoModel.findById(request.params.id, function(err, photo) {
+        if (!err) {
+            return response.send(photo);
+        } else {
+            return console.log(err);
+        }
+    });
+});
