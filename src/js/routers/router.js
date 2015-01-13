@@ -1,17 +1,18 @@
 var Workspace = Backbone.Router.extend({
     
     routes: {
-        'albums/:album': 'openAlbum'
+        'album/:id': 'openAlbum'
     },
 
-    openAlbum: function(album) {
-        // Kill albumLibrary view
-        console.log(app.AlbumLibraryView);
-        alert('in the album '+album)
-        //app.AlbumLibraryView.close();
+    openAlbum: function(id) {
+        // Kill albumLibrary model
 
-        // Create photoLibrary view
-        //var photoLibraryView = new app.
+        var photoWrapperTemplate = _.template($('#photoLibraryTemplate').html());
+
+        // Create photoLibrary view.
+        $("#mainWrapper").html(photoWrapperTemplate({albumId: id}));
+
+        var photoLibraryView = new app.PhotoLibraryView();
 
         // this.navigate('albums/' + album, {trigger: true});
     }

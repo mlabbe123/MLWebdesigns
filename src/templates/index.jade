@@ -9,17 +9,18 @@ html
 		// CSS FILES
 		link(href="css/style.css", type="text/css", rel="stylesheet")
 	body
-		#albumLibraryContainer
-			label(for="albumTitle") Nom de l'album
-			input(id="albumTitle" type="text") 
+		#mainWrapper
+			#albumLibraryContainer
+				label(for="albumTitle") Nom de l'album
+				input(id="albumTitle" type="text") 
 
-			button(id="addAlbum") Créer
+				button(id="addAlbum") Créer
 
 
 		script(id="albumTemplate" type="text/template").
-			<a href="albums/<%= title %>" class="enterAlbum">
+			<a href="album/<%= id %>" class="enterAlbum">
 				<div class="album-preview">
-					<img src="<%= albumPreviewImg %>">
+					<img src="<%= previewImg %>">
 				</div>
 				<div class="album-title">
 					<span><%= title %></span>
@@ -27,9 +28,19 @@ html
 			</a>
 			<a href="#" class="deleteAlbum">Effacer</a>
 
-		script(id="photosTemplate" type="text/template").
-			<div id="photos-container"></div>
+		script(id="photoLibraryTemplate" type="text/template").
+			<div id="photoLibraryContainer">
+				<label for="photoUrl">Url de la photo</label>
+				<input id="photoUrl" type="text"> 
+				<input id="albumId" type="hidden" value="<%= albumId %>"></input>
 
+				<button id="addPhoto" type="button">Créer</button>
+				
+				<div id="photos-container"></div>
+			</div>
+
+		script(id="photoTemplate" type="text/template").
+			photo
 
 		script(src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
 		script.
@@ -48,8 +59,12 @@ html
 		script(src="http://documentcloud.github.com/backbone/backbone-min.js")
 	
 		script(src="js/models/album.js")
+		script(src="js/models/photo.js")
 		script(src="js/collections/albumLibrary.js")
+		script(src="js/collections/photoLibrary.js")
 		script(src="js/views/album.js")
 		script(src="js/views/albumLibrary.js")
+		script(src="js/views/photo.js")
+		script(src="js/views/photoLibrary.js")
 		script(src="js/routers/router.js")
 		script(src="js/app.js")

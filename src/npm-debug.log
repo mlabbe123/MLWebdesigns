@@ -1,0 +1,26 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'uninstall', 'gulp' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 verbose node_modules/gulp unbuild
+5 info preuninstall gulp@3.8.10
+6 info uninstall gulp@3.8.10
+7 verbose true,/Users/mathieu/web/MLWebdesigns/src/node_modules,/Users/mathieu/web/MLWebdesigns/src/node_modules unbuild gulp@3.8.10
+8 verbose /Users/mathieu/web/MLWebdesigns/src/node_modules/.bin,[object Object] binRoot
+9 info postuninstall gulp@3.8.10
+10 error Error: EACCES, unlink '/Users/mathieu/web/MLWebdesigns/src/node_modules/gulp/node_modules/.bin/semver'
+10 error  { [Error: EACCES, unlink '/Users/mathieu/web/MLWebdesigns/src/node_modules/gulp/node_modules/.bin/semver']
+10 error   errno: 3,
+10 error   code: 'EACCES',
+10 error   path: '/Users/mathieu/web/MLWebdesigns/src/node_modules/gulp/node_modules/.bin/semver' }
+11 error Please try running this command again as root/Administrator.
+12 error System Darwin 13.4.0
+13 error command "node" "/usr/local/bin/npm" "uninstall" "gulp"
+14 error cwd /Users/mathieu/web/MLWebdesigns/src
+15 error node -v v0.10.32
+16 error npm -v 1.4.28
+17 error path /Users/mathieu/web/MLWebdesigns/src/node_modules/gulp/node_modules/.bin/semver
+18 error code EACCES
+19 error errno 3
+20 error stack Error: EACCES, unlink '/Users/mathieu/web/MLWebdesigns/src/node_modules/gulp/node_modules/.bin/semver'
+21 verbose exit [ 3, true ]
