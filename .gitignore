@@ -11,6 +11,8 @@ Thumbs.db
 # sass cache folder #
 .sass-cache/
 .sass-cache/*
+.idea/
+.idea/*
 
 # compass config #
 config.rb
